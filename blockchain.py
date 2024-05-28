@@ -26,6 +26,8 @@ def print_block():
     for block in blockchain:
         print("Outputting Block")
         print(block)
+    else:
+        print('-' * 20)
     
 def verify_chain():
     """Verifies the integrity of the blockchain."""
@@ -44,7 +46,7 @@ def main():
         print('1: Add a new transaction value')
         print("2: Output the blockchain blocks")
         print("h: Manipulate the chain")
-        print("3: Quit!")
+        print("q: Quit!")
         user_choice = get_user_choice()
         print(user_choice)   
         if user_choice == '1' :
@@ -62,6 +64,8 @@ def main():
         if not verify_chain():
             print("Invalid blockchain")
             break
+    
+    print("User left!")
     print("Done")
 
 
