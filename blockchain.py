@@ -18,16 +18,35 @@ def get_user_transaction():
     """Prompts the user for a transaction amount and returns it as a float."""
     return float(input("Your transaction amount please: "))
 
+def get_user_choice():
+    user_input = int(input(' Your choice: '))
+    return user_input
+
+def print_block():
+    for block in blockchain:
+        print("Outputting Block")
+        print(block)
+    
 
 def main():
-        while True:
+    tx_amount = get_user_transaction()
+    add_transaction(tx_amount, get_last_block())
+    while True:
+        print("Please choose")
+        print('1: Add a new transaction value')
+        print("2: Output the blockchain blocks")
+        user_choice = get_user_choice()
+        print(user_choice)   
+        if user_choice == 1 :
             tx_amount = get_user_transaction()
             add_transaction(tx_amount, get_last_block())
-            
-            for block in blockchain:
-                print("Outputting Block")
-                print(block)
+        elif user_choice == 2:
+            print_block()
+        else:
+            print("Input was invalid, pls pick a value from the list!")
+
 
 
 if __name__ == "__main__":
     main()
+4
