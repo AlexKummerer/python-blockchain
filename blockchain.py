@@ -20,9 +20,13 @@ def get_user_transaction():
 
 
 def main():
-    for _ in range(3):
-        tx_amount = get_user_transaction()
-        add_transaction(tx_amount, get_last_block())
+        while True:
+            tx_amount = get_user_transaction()
+            add_transaction(tx_amount, get_last_block())
+            
+            for block in blockchain:
+                print("Outputting Block")
+                print(block)
 
 
 if __name__ == "__main__":
